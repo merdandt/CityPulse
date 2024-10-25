@@ -1,5 +1,5 @@
 import streamlit as st
-import openai
+import openai as openai
 import datetime as dt
 import json
 
@@ -119,7 +119,7 @@ def get_concerns(sectors, departments, city):
   
   
   
-def get_concerns_mock(sectors, city):
+def get_concerns_mock(sectors, departments, city):
     # Mocked response data
     mocked_response = [
       {
