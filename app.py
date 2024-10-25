@@ -109,71 +109,6 @@ department_list = []
 for sector in selected_sectors:
     department_list += sector.departments   
 
-# Button to get concerns
-# if st.button("Get Concerns"):
-#     print('selected_sectors:', selected_sectors)
-#     if not city:
-#         st.warning("Please select a city.")
-#     elif not selected_sectors:
-#         st.warning("Please select at least one sector.")
-#     else:
-#         with st.spinner("Analyzing concerns..."):
-#             try:
-#                 concerns = grok.get_concerns_mock(selected_sectors, department_list, city)
-#                 # concerns = grok.get_concerns(selected_sectors, city)
-#                 # Sort concerns by degree_level
-#                 concerns.sort(key=lambda x: x.degree_level, reverse=True)
-#                 # Display the concerns                        
-#                 for idx, concern in enumerate(concerns):
-#                     # Generate a unique key for this concern
-#                     concern_key = f"concern_{idx}"
-
-#                     st.markdown(
-#                         f"""
-#                             <div class='card'>
-#                                 <div class='card-header'>
-#                                     <h4>Sector: {concern.sector}</h4>
-#                                     <span class='badge degree-level-{concern.degree_level}'>{concern.degree}</span>
-#                                 </div>
-#                                 <p><strong>Department:</strong> {concern.department}</p>
-#                                 <p><strong>Concern:</strong> {concern.concern}</p>
-#                             </div>
-#                             """,
-#                         unsafe_allow_html=True
-#                     )
-
-#                     # Initialize session state for this concern if not already done
-#                     if f"show_solution_{concern_key}" not in st.session_state:
-#                         st.session_state[f"show_solution_{concern_key}"] = False
-
-#                     # Create a unique key for the button
-#                     button_key = f"solution_button_{idx}"
-
-#                     # Display the button
-#                     if st.button("View Suggested Solution", key=button_key):
-#                         # Set the flag to show the solution
-#                         st.session_state[f"show_solution_{concern_key}"] = True
-
-#                     # If the flag is set, display the solution
-#                     if st.session_state[f"show_solution_{concern_key}"]:
-#                         # Check if the solution is already in session state
-#                         if f"solution_{concern_key}" not in st.session_state:
-#                             with st.spinner("Generating solution..."):
-#                                 # Generate the solution
-#                                 solution = gov_ceo.generate_solution(concern.sector, concern.department, concern.concern)
-#                                 # Store the solution in session state
-#                                 st.session_state[f"solution_{concern_key}"] = solution
-#                         else:
-#                             # Solution already generated
-#                             solution = st.session_state[f"solution_{concern_key}"]
-
-#                         # Display the solution
-#                         st.markdown("### Suggested Solution:")
-#                         st.write(solution)
-
-#             except Exception as e:
-#                 st.error(f"An error occurred: {e}")
-
 # Initialize concerns in session state if not already present
 if 'concerns' not in st.session_state:
     st.session_state.concerns = None
@@ -191,7 +126,7 @@ if st.button("Get Concerns"):
     else:
         with st.spinner("Analyzing concerns..."):
             try:
-                concerns = grok.get_concerns_mock(selected_sectors, department_list, city)
+                concerns = grok.get_concerns(selected_sectors, department_list, city)
                 concerns.sort(key=lambda x: x.degree_level, reverse=True)
                 st.session_state.concerns = concerns
             except Exception as e:
