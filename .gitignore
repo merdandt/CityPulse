@@ -9,6 +9,9 @@ __pycache__/
 # Secret keys
 *.toml
 
+# Exclude from being ignore this file
+!.streamlit/secrets_example.toml
+
 # Distribution / packaging
 .Python
 build/

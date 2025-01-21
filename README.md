@@ -2,6 +2,18 @@
 
 An AI assistant to monitor and analyze social media concerns in your city.
 
+## Screenshots
+![Screenshot 1](assets/1.png)
+![Screenshot 1](assets/1.png)
+
+## Implemented social media platforms
+- [x] Twitter
+- [ ] Facebook
+- [ ] Instagram
+- [ ] Reddit
+- [ ] TikTok
+- [ ] YouTube
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -28,7 +40,7 @@ An AI assistant to monitor and analyze social media concerns in your city.
 
 ## Introduction
 
-**CityPulseAI** is an interactive Streamlit application designed to assist government officials and stakeholders in monitoring and analyzing public concerns expressed on social media. By leveraging OpenAI's GPT model, the app identifies key issues within selected sectors and provides suggested solutions, acting as the chief executive of the corresponding department.
+**CityPulseAI** is an interactive Streamlit application designed to assist government officials and stakeholders in monitoring and analyzing public concerns expressed on social media space. The app identifies key issues within selected sectors and provides suggested solutions, acting as the chief executive of the corresponding department.
 
 ---
 
@@ -176,10 +188,5 @@ Documentation:
 Refer to the Streamlit Cloud Deployment Guide for detailed instructions.
 Other Hosting Options
 
-### Docker:
-
-Containerize your app using Docker for deployment on services like AWS, Azure, or Google Cloud.
-
-### Heroku:
-
-Deploy your app to Heroku using the appropriate buildpacks and configuration.
+### Contributing
+Contributions are welcome! If you have suggestions for improvements or new features, please open an issue or submit a pull request.
